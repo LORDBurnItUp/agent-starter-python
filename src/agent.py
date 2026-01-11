@@ -49,7 +49,12 @@ class Assistant(Agent):
 
 
 def prewarm(proc: JobProcess):
-    proc.userdata["vad"] = silero.VAD.load()
+    try:
+        proc.userdata["vad"] = silero.VAD.load()
+        logger.info("VAD loaded successfully during prewarm")
+    except Exception as e:
+        logger.error(f"Failed to load VAD during prewarm: {e}")
+        # Don't set userdata["vad"], entrypoint will handle loading it on-demand
 
 
 async def entrypoint(ctx: JobContext):
