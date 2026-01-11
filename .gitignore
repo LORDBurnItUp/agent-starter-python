@@ -6,7 +6,7 @@ __pycache__
 .idea
 KMS
 .venv
-.vscode
+# .vscode - Included in this template for open-source setup
 *.egg-info
 .pytest_cache
 .ruff_cache

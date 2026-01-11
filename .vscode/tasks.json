@@ -1,0 +1,59 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Install Dependencies",
+      "type": "shell",
+      "command": "uv sync",
+      "problemMatcher": [],
+      "group": "build"
+    },
+    {
+      "label": "Download Models",
+      "type": "shell",
+      "command": "uv run python src/agent.py download-files",
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Agent (Console)",
+      "type": "shell",
+      "command": "uv run python src/agent.py console",
+      "problemMatcher": [],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Run Agent (Dev)",
+      "type": "shell",
+      "command": "uv run python src/agent.py dev",
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Tests",
+      "type": "shell",
+      "command": "uv run pytest",
+      "problemMatcher": [],
+      "group": "test"
+    },
+    {
+      "label": "Format Code",
+      "type": "shell",
+      "command": "uv run ruff format",
+      "problemMatcher": []
+    },
+    {
+      "label": "Lint Code",
+      "type": "shell",
+      "command": "uv run ruff check",
+      "problemMatcher": []
+    },
+    {
+      "label": "Fix Lint Issues",
+      "type": "shell",
+      "command": "uv run ruff check --fix",
+      "problemMatcher": []
+    }
+  ]
+}

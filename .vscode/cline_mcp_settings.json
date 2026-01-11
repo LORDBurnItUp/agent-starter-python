@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "livekit-docs": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@livekit/mcp-server"
+      ],
+      "disabled": false,
+      "alwaysAllow": []
+    }
+  }
+}

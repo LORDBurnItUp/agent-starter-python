@@ -1,0 +1,17 @@
+{
+  "projectName": "LiveKit Agents Starter - Python",
+  "description": "Voice AI agent built with LiveKit Agents for Python",
+  "preferences": {
+    "packageManager": "uv",
+    "testRunner": "pytest",
+    "formatter": "ruff",
+    "linter": "ruff"
+  },
+  "reminders": [
+    "Always use uv for dependency management and running commands",
+    "Use TDD when modifying agent behavior - write tests first",
+    "Run 'uv run ruff format' and 'uv run ruff check' before committing",
+    "Refer to AGENTS.md for project-specific guidelines",
+    "Use LiveKit Docs MCP server for latest documentation"
+  ]
+}
