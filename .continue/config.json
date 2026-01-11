@@ -1,0 +1,87 @@
+{
+  "models": [
+    {
+      "title": "Claude 3.5 Sonnet",
+      "provider": "anthropic",
+      "model": "claude-3-5-sonnet-20241022",
+      "apiKey": ""
+    }
+  ],
+  "tabAutocompleteModel": {
+    "title": "Starcoder 7b",
+    "provider": "ollama",
+    "model": "starcoder2:7b"
+  },
+  "embeddingsProvider": {
+    "provider": "ollama",
+    "model": "nomic-embed-text"
+  },
+  "customCommands": [
+    {
+      "name": "test",
+      "prompt": "Write comprehensive pytest tests for the selected code. Follow TDD principles.",
+      "description": "Generate tests for selected code"
+    },
+    {
+      "name": "agent",
+      "prompt": "You are working on a LiveKit Agents voice AI project. Use handoffs and tasks for complex workflows. Keep latency low. Always use 'uv run' for commands.",
+      "description": "LiveKit Agent context"
+    }
+  ],
+  "contextProviders": [
+    {
+      "name": "code",
+      "params": {}
+    },
+    {
+      "name": "docs",
+      "params": {}
+    },
+    {
+      "name": "diff",
+      "params": {}
+    },
+    {
+      "name": "terminal",
+      "params": {}
+    },
+    {
+      "name": "problems",
+      "params": {}
+    },
+    {
+      "name": "folder",
+      "params": {}
+    },
+    {
+      "name": "codebase",
+      "params": {}
+    }
+  ],
+  "slashCommands": [
+    {
+      "name": "edit",
+      "description": "Edit selected code"
+    },
+    {
+      "name": "comment",
+      "description": "Add comments to code"
+    },
+    {
+      "name": "share",
+      "description": "Export conversation"
+    },
+    {
+      "name": "cmd",
+      "description": "Generate shell command"
+    }
+  ],
+  "mcpServers": {
+    "livekit-docs": {
+      "transport": {
+        "type": "http",
+        "url": "https://docs.livekit.io/mcp"
+      }
+    }
+  }
+}

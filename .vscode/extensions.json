@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "charliermarsh.ruff",
+    "ms-python.python",
+    "saoudrizwan.claude-dev",
+    "continue.continue"
+  ],
+  "unwantedRecommendations": []
+}

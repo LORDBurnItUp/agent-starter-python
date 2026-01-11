@@ -21,7 +21,13 @@ This starter app is compatible with any [custom web/mobile frontend](https://doc
 
 ## Coding agents and MCP
 
-This project is designed to work with coding agents like [Cursor](https://www.cursor.com/) and [Claude Code](https://www.anthropic.com/claude-code). 
+This project is designed to work with coding agents like [Cursor](https://www.cursor.com/), [Claude Code](https://www.anthropic.com/claude-code), VS Code + [Cline](https://github.com/cline/cline), and [Continue.dev](https://continue.dev).
+
+**🆓 Want to use 100% free and open-source tools?** See [docs/OPEN_SOURCE_SETUP.md](docs/OPEN_SOURCE_SETUP.md) for a complete guide to using:
+- VS Code + Cline (free, open source)
+- Continue.dev (fully open source, supports local models with Ollama)
+- Cursor (free tier available)
+- Supabase (free database tier)
 
 To get the most out of these tools, install the [LiveKit Docs MCP server](https://docs.livekit.io/mcp).
 
@@ -45,7 +51,16 @@ For Gemini CLI, use this command to install the server:
 gemini mcp add --transport http livekit-docs https://docs.livekit.io/mcp
 ```
 
-The project includes a complete [AGENTS.md](AGENTS.md) file for these assistants. You can modify this file  your needs. To learn more about this file, see [https://agents.md](https://agents.md).
+For VS Code + Cline/Continue, the `.vscode` folder includes pre-configured MCP settings.
+
+The project includes:
+- [AGENTS.md](AGENTS.md) - Guidelines for AI coding assistants
+- [.claude/](.claude/) - Claude Code configuration
+- [.cursorrules](.cursorrules) - Cursor IDE rules
+- [.vscode/](.vscode/) - VS Code settings for Cline/Continue
+- [docs/OPEN_SOURCE_SETUP.md](docs/OPEN_SOURCE_SETUP.md) - Complete open-source setup guide
+
+To learn more about these files, see [https://agents.md](https://agents.md).
 
 ## Dev Setup
 

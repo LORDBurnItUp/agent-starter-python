@@ -1,0 +1,94 @@
+# LiveKit Agents Project - Cursor Rules
+
+You are working on a LiveKit Agents project for building voice AI applications with Python.
+
+## Project Overview
+- **Framework**: LiveKit Agents (Python SDK for voice AI)
+- **Package Manager**: uv (ALWAYS use uv, never pip/poetry)
+- **Test Framework**: pytest
+- **Code Quality**: ruff (formatter and linter)
+- **Database**: Supabase (optional, for data persistence)
+
+## Critical Rules
+
+### 1. Package Management
+- ALWAYS use `uv` for all operations
+- Install dependencies: `uv sync`
+- Run commands: `uv run <command>`
+- Add packages: `uv add <package>`
+
+### 2. Test-Driven Development (TDD)
+When modifying core agent behavior (instructions, tools, workflows):
+1. Write tests FIRST for desired behavior
+2. Implement the changes
+3. Iterate until tests pass
+4. NEVER guess - always test!
+
+### 3. Code Quality
+- Run `uv run ruff format` before committing
+- Run `uv run ruff check` to catch issues
+- Follow PEP 8 style guidelines
+- Keep line length to 88 characters (ruff default)
+
+### 4. Agent Architecture
+- Use **handoffs** for different conversation phases
+- Use **tasks** for tightly-scoped objectives
+- Minimize tools and context per phase to reduce latency
+- Avoid long monolithic prompts - structure your agent!
+
+### 5. Documentation
+- LiveKit Agents evolves rapidly
+- Always check latest docs at https://docs.livekit.io
+- Use the LiveKit Docs MCP server when available
+- Submit feedback for incomplete/broken documentation
+
+## Common Commands
+
+```bash
+# Setup
+uv sync                              # Install dependencies
+uv run python src/agent.py download-files  # Download models (first time)
+
+# Development
+uv run python src/agent.py console   # Test in terminal
+uv run python src/agent.py dev       # Run for frontend/telephony
+
+# Testing
+uv run pytest                        # Run all tests
+uv run pytest tests/test_agent.py    # Run specific test
+
+# Code Quality
+uv run ruff format                   # Format code
+uv run ruff check                    # Check for issues
+uv run ruff check --fix              # Auto-fix issues
+```
+
+## Project Structure
+- `src/agent.py` - Main entry point (required)
+- `src/` - All application code
+- `tests/` - Test suite using pytest
+- `.env.local` - Local environment variables (not committed)
+
+## Environment Variables
+Required for LiveKit:
+- `LIVEKIT_URL`
+- `LIVEKIT_API_KEY`
+- `LIVEKIT_API_SECRET`
+
+Optional for Supabase:
+- `SUPABASE_URL`
+- `SUPABASE_ANON_KEY`
+- `SUPABASE_SERVICE_KEY`
+
+## Best Practices
+1. Keep agent latency low - every millisecond matters
+2. Test voice interactions thoroughly
+3. Use structured workflows (handoffs/tasks) over complex prompts
+4. Never skip model downloads before first run
+5. Always validate with `uv run pytest` before committing
+
+## Resources
+- LiveKit Docs: https://docs.livekit.io
+- LiveKit Agents Guide: https://docs.livekit.io/agents
+- Testing Framework: https://docs.livekit.io/agents/build/testing
+- MCP Server: https://docs.livekit.io/mcp
