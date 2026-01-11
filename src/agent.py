@@ -60,6 +60,14 @@ async def entrypoint(ctx: JobContext):
     }
 
     # Set up a voice AI pipeline using OpenAI, Cartesia, AssemblyAI, and the LiveKit turn detector
+    # Get VAD from userdata, or load it if not available (fallback for when prewarm wasn't called)
+    vad = ctx.proc.userdata.get("vad")
+    if vad is None:
+        logger.warning(
+            "VAD not found in userdata, loading it now (prewarm may have failed)"
+        )
+        vad = silero.VAD.load()
+
     session = AgentSession(
         # Speech-to-text (STT) is your agent's ears, turning the user's speech into text that the LLM can understand
         # See all available models at https://docs.livekit.io/agents/models/stt/
@@ -75,7 +83,7 @@ async def entrypoint(ctx: JobContext):
         # VAD and turn detection are used to determine when the user is speaking and when the agent should respond
         # See more at https://docs.livekit.io/agents/build/turns
         turn_detection=MultilingualModel(),
-        vad=ctx.proc.userdata["vad"],
+        vad=vad,
         # allow the LLM to generate a response while waiting for the end of turn
         # See more at https://docs.livekit.io/agents/build/audio/#preemptive-generation
         preemptive_generation=True,
